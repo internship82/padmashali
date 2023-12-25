@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
+	
 	<meta name="generator" content="LibreOffice 7.3.7.2 (Linux)"/>
 	<meta name="created" content="00:00:00"/>
 	<meta name="changed" content="2023-12-24T20:21:35.432611708"/>
@@ -10,6 +10,84 @@
 		@page { size: 21.59cm 27.94cm; margin-left: 2.54cm; margin-right: 2.54cm; margin-top: 2.06cm; margin-bottom: 1.6cm }
 		p { line-height: 115%; text-align: left; orphans: 2; widows: 2; margin-bottom: 0.25cm; direction: ltr; background: transparent }
 	</style>
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+		(function($) {
+			$.fn.easyTabs = function(option) {
+				var param = jQuery.extend({ fadeSpeed: 'fast', defaultContent: 1, activeClass: 'active' }, option);
+				$(this).each(function() {
+					var thisId = '#' + this.id;
+					if ( param.defaultContent == '' )
+					{
+						param.defaultContent = 1;
+					}
+					if ( typeof param.defaultContent == 'number' )
+					{
+						var defaultTab = $(thisId + ' .tabs li:eq(' + (param.defaultContent - 1) + ') a').attr('href').substr(1);
+					}
+					else
+					{
+						var defaultTab = param.defaultContent;
+					}
+					$(thisId + ' .tabs li a').each(function() {
+						var tabToHide = $(this).attr('href').substr(1);
+						$('#' + tabToHide).addClass('easytabs-tab-content');
+					});
+					hideAll();
+					changeContent(defaultTab);
+
+					function hideAll() {$(thisId + ' .easytabs-tab-content').hide();}
+
+					function changeContent(tabId)
+					{
+						hideAll();
+						$(thisId + ' .tabs li').removeClass(param.activeClass);
+						$(thisId + ' .tabs li a[href=#' + tabId + ']').closest('li').addClass(param.activeClass);
+						if ( param.fadeSpeed != 'none' )
+						{
+							$(thisId + ' #' + tabId).fadeIn(param.fadeSpeed);
+						}
+						else
+						{
+							$(thisId + ' #' + tabId).show();
+						}
+					}
+
+					$(thisId + ' .tabs li').click(function() {
+						var tabId = $(this).find('a').attr('href').substr(1);
+						changeContent(tabId);
+						return false;
+					});
+				});
+			}
+		})(jQuery);
+    </script>
+    <link rel="stylesheet" href="specimen_files/specimen_stylesheet.css" type="text/css" charset="utf-8"/>
+    <link rel="stylesheet" href="stylesheet.css" type="text/css" charset="utf-8"/>
+
+    <style type="text/css">
+        		body {
+			font-family: 'nudi_02_eregular';
+        		}
+
+            </style>
+
+    <title>Nudi 02 e Regular Specimen</title>
+
+
+    <script type="text/javascript" charset="utf-8">
+		$(document).ready(function() {
+			$('#container').easyTabs({ defaultContent: 1 });
+		});
+    </script>
+
+
+
+
+	
 </head>
 <body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><p style="line-height: 150%; margin-bottom: 0cm">
   <font face="Nudi 02 e, serif"><font size="6" style="font-size: 26pt"><u><b>KPÀgÀÆ¥À
